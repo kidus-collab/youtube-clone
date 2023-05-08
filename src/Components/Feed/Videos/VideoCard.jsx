@@ -11,9 +11,28 @@ import {
   demoChannelUrl,
   demoVideoUrl,
 } from "../../../utils/constants";
-const VideoCard = ({ video }) => {
-  console.log(video);
-  return <div>VideoCard</div>;
+
+const VideoCard = ({
+  video: {
+    id: { videoId },
+    snippet,
+  },
+}) => {
+  console.log(videoId, snippet);
+  return (
+    <Card>
+      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
+        <CardMedia
+          image={snippet?.thumbnails?.high?.url}
+          alt={snippet?.title}
+          sx={{ width: 358, height: 180 }}
+        />
+        <CardContent sx={{ backgroundColor: "#1e1e1e", height: "106px" }}>
+          <Typography></Typography>
+        </CardContent>
+      </Link>
+    </Card>
+  );
 };
 
 export default VideoCard;
