@@ -21,7 +21,11 @@ const ChannelDetail = () => {
     );
   }, [id]);
 
-  return <Box>{id}</Box>;
+  return (
+    <Box>
+      <ChannelCard channelDetail={channelDetail} />
+    </Box>
+  );
 };
 
 export default ChannelDetail;
