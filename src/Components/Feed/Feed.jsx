@@ -11,9 +11,9 @@ const Feed = () => {
   const [videoData, setVideo] = useState([]);
 
   useEffect(() => {
-    fetchApi(`search?part=snippet&q=${selectedCategory}`).then((data) => {
-      setVideo(data.item);
-    });
+    fetchApi(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideo(data?.items)
+    );
   }, [selectedCategory]);
 
   return (
@@ -46,7 +46,7 @@ const Feed = () => {
           {selectedCategory}
           <span style={{ color: "#F31503" }}> videos</span>
         </Typography>
-        <Videos videos={videoData} />
+        <Videos videoList={videoData} />
       </Box>
     </Stack>
   );

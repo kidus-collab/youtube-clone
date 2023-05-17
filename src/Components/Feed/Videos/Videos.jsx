@@ -3,11 +3,12 @@ import { Stack, Box } from "@mui/material";
 
 import { VideoCard, ChannelCard } from "../../export";
 
-const Videos = ({ videos }) => {
+const Videos = ({ videoList }) => {
+  console.log(videoList);
   return (
     <Stack direction="row" flexWrap="wrap" gap={2} justifyItems="start">
-      {videos.map((idx, item) => (
-        <Box key={idx}>
+      {videoList.map((item) => (
+        <Box>
           {item.id.videoId && <VideoCard video={item} />}
           {item.id.channelId && <ChannelCard video={item} />}
         </Box>
